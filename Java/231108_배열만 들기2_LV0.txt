@@ -1,0 +1,46 @@
+정수 l과 r이 주어졌을 때, l 이상 r이하의 정수 중에서 숫자 "0"과 "5"로만 이루어진 모든 정수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
+
+만약 그러한 정수가 없다면, -1이 담긴 배열을 return 합니다.
+
+
+
+
+class Solution {
+    public int[] solution(int l, int r) {
+        int[] answer = {};
+        
+        for(int i = l; i<r+1; i++){
+            String temp = Integer.toString(i);
+            int cnt = 0;
+            
+            for(int j = 0; j<temp.length(); j++){
+                if(temp.charAt(j)=='5' || temp.charAt(j)=='0'){
+                }
+                else{
+                    cnt++;
+                }
+            }
+            if(cnt==0){
+                int newLength = answer.length + 1;
+                int [] newArray = new int[newLength];
+                for(int k = 0; k<newLength; k++){
+                    if(k<newLength-1){
+                        newArray[k] = answer[k];
+                    }else{
+                        newArray[k] = i;
+                    }
+                }
+                answer = newArray;
+            }
+        }
+        
+        if(answer.length==0){
+            int newLength = answer.length + 1;
+            int [] newArray = new int[newLength];
+            newArray[0] = -1;
+            answer = newArray;
+        }
+        
+        return answer;
+    }
+}
