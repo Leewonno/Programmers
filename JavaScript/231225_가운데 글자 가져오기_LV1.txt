@@ -1,0 +1,25 @@
+단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+
+
+function solution(s) {
+    var answer = '';
+    let temp = s.split("");
+    let even = false;
+    
+    if(temp.length%2==0){
+        even = true;
+    }
+    
+    if(even){
+        let mid = temp.length/2;
+        for(let i = 0; i<2; i++){
+            answer+=temp[mid-1+i];
+        }
+    }else{
+        let mid = Math.floor(temp.length/2);
+        answer = temp[mid];
+    } 
+    
+    
+    return answer;
+}
